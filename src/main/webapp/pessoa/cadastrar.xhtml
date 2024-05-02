@@ -16,11 +16,19 @@
 			<h:outputText value="Nome" />
 			<h:inputText value="#{PessoaBean.pessoa.nome}" />
 
-			<h:outputText value="profissão" />
+			<h:outputText value="Profissão" />
 			<h:inputText value="#{PessoaBean.pessoa.profissao}" />
+			
+			<h:outputText value="Idade" />
+			<h:inputText value="#{PessoaBean.pessoa.idade}" />
+			
+			<h:outputText value="Cidade" />
+			<h:inputText value="#{PessoaBean.pessoa.cidade}" />
 
 			<h:outputText />
 			<h:commandButton value="Adicionar" action="#{PessoaBean.adicionar}" />
+			
+		
 		</h:panelGrid>
 	</h:form>
 

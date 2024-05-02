@@ -10,7 +10,25 @@ public class Pessoa implements Serializable{
 	private int id;
 	private String nome;
 	private String profissao;
+	private int idade;
+	private String cidade;
 	
+		public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
+
+	public String getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
 		public Pessoa() {
 		
 	}

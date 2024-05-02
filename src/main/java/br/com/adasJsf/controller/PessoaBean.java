@@ -18,14 +18,22 @@ public class PessoaBean implements Serializable {
 //Injeção de dependencia da classe pessoa do pacote model
 	@Inject
 	private Pessoa pessoa;
+	private int idSequencia= 1;
 
 	List<Pessoa> pessoas = new ArrayList<Pessoa>();
 //Declaração dos metodos da bean
 	public String adicionar() {
+		pessoa.setId(this.getSequenciaId());
 		pessoas.add(pessoa);
 		pessoa = new Pessoa();
-		System.out.println("Tamanho da lista: " + this.pessoas.size());
+		
+		
 		return null;
+	}
+	
+	
+	private int getSequenciaId(){
+		return this.idSequencia++;	 
 	}
 
 	
