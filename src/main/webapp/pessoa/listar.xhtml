@@ -10,6 +10,7 @@
 <h:body>
 
 	<h2>Lista de Pessoas</h2>
+	<h:form>
 	<h:dataTable value="#{PessoaBean.pessoas}" var="pessoa" >
 <h:column>
 	<f:facet name="header">Id</f:facet>
@@ -25,6 +26,7 @@
 	<f:facet name="header">Profissão</f:facet>
 	#{pessoa.profissao}
 	</h:column>
+	
 	<h:column>
 	<f:facet name="header">Idade</f:facet>
 	#{pessoa.idade}
@@ -35,6 +37,23 @@
 	#{pessoa.cidade}
 	</h:column>
 	
+	<h:column>
+	<h:commandButton action="#{PessoaBean.telaEdicao}" actionListener="#{PessoaBean.carregarEdicao}" value="Editar">
+	<f:attribute name= "pessoa" value="#{pessoa}"/>
+	</h:commandButton>
+	</h:column>
+	
+
+	
+	<h:column>
+	<h:commandButton value="Apagar" action="#{PessoaBean.apagar(pessoa)}" />
+	</h:column>
+	
+	
 </h:dataTable>
+</h:form>
+
+<h:button style="margin-top: 20px" value="Menu" outcome="/Menu.xhtml" />
+
 </h:body>
 </html>
