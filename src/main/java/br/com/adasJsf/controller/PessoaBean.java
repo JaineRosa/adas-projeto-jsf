@@ -32,6 +32,20 @@ public class PessoaBean implements Serializable {
 		return "/pessoa/listar.xhtml";
 	}
 	
+	public String apagar(Pessoa pessoa) {
+		boolean remover=pessoas.remove(pessoa);
+		
+		if (remover) {
+	        System.out.println("Pessoa removida com sucesso.");
+	    } else {
+	        System.out.println("Erro ao remover a pessoa.");
+	    }
+		
+		return "/pessoa/listar.xhtml";
+		
+		
+	}
+	
 	public String editar() {
 		int index = pessoas.indexOf(pessoa);
 		Pessoa pessoaEdicao = pessoa;
