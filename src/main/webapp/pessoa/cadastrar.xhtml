@@ -14,28 +14,43 @@
 	<h:form>
 		<h:panelGrid columns="2">
 			<h:outputText value="Nome" />
-			<h:inputText value="#{PessoaBean.pessoa.nome}" />
+			<h:inputText value="#{PessoaBean.pessoa.nome}" required="true"
+				requiredMessage="O campo nome é obrigatório" />
 
 			<h:outputText value="Profissão" />
-			<h:selectOneMenu value="#{PessoaBean.pessoa.profissao}">
-			<f:selectItem itemLabel="Desenvolvedor" itemValue="Desenvolvedor"/>
-			<f:selectItem itemLabel="DBA" itemValue="DBA"/>
-			<f:selectItem itemLabel="Front-End" itemValue="Front-End"/>
-			<f:selectItem itemLabel="Back-end" itemValue="Back-end"/>
-			<f:selectItem itemLabel="FullStack" itemValue="FullStack"/>
+			<h:selectOneMenu value="#{PessoaBean.pessoa.profissao}"
+				required="true"
+				requiredMessage="A seleção de Profissão é obrigatória.">
+				<f:selectItem itemLabel="" itemValue="" />
+				<f:selectItem itemLabel="Desenvolvedor" itemValue="Desenvolvedor" />
+				<f:selectItem itemLabel="DBA" itemValue="DBA" />
+				<f:selectItem itemLabel="Front-End" itemValue="Front-End" />
+				<f:selectItem itemLabel="Back-end" itemValue="Back-end" />
+				<f:selectItem itemLabel="FullStack" itemValue="FullStack" />
 			</h:selectOneMenu>
-			
+
 			<h:outputText value="Idade" />
-			<h:inputText value="#{PessoaBean.pessoa.idade}" />
-			
+			<h:inputText value="#{PessoaBean.pessoa.idade}" required="true"
+				requiredMessage="O campo Idade é obrigatório." />
+
 			<h:outputText value="Cidade" />
-			<h:inputText value="#{PessoaBean.pessoa.cidade}" />
+			<h:selectOneMenu value="#{PessoaBean.pessoa.cidade}" required="true"
+				requiredMessage="A seleção de Cidade é obrigatória.">
+				<f:selectItem itemLabel="" itemValue="" />
+				<f:selectItem itemLabel="Blumenau" itemValue="Blumenau" />
+				<f:selectItem itemLabel="Indaial" itemValue="Indaial" />
+				<f:selectItem itemLabel="Brusque" itemValue="Brusque" />
+				<f:selectItem itemLabel="Penha" itemValue="Penha" />
+				<f:selectItem itemLabel="Balneário Piçarras"
+					itemValue="Balneário Piçarras" />
+			</h:selectOneMenu>
 
 			<h:outputText />
+			<h:messages />
 			<h:commandButton value="Adicionar" action="#{PessoaBean.adicionar}" />
-			
-			
-		
+
+
+
 		</h:panelGrid>
 	</h:form>
 

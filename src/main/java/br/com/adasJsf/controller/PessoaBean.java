@@ -32,6 +32,7 @@ public class PessoaBean implements Serializable {
 		return "/pessoa/listar.xhtml";
 	}
 	
+	
 	public String apagar(Pessoa pessoa) {
 		boolean remover=pessoas.remove(pessoa);
 		
