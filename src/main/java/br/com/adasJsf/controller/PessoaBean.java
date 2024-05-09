@@ -1,6 +1,5 @@
 package br.com.adasJsf.controller;
 
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,8 +32,8 @@ public class PessoaBean implements Serializable {
 	}
 	
 	
-	public String apagar(Pessoa pessoa) {
-		boolean remover=pessoas.remove(pessoa);
+	public String apagar(Pessoa pessoaExcluir) {
+		boolean remover=pessoas.remove(pessoaExcluir);
 		
 		if (remover) {
 	        System.out.println("Pessoa removida com sucesso.");
@@ -57,6 +56,9 @@ public class PessoaBean implements Serializable {
 		pessoa = new Pessoa();
 		
 		return "/pessoa/listar.xhtml";
+		
+		//alternativa de uso para edição da lista
+		// pessoas.set(index , pessoaEdição)
 	}
 	
 	public String telaEdicao() {

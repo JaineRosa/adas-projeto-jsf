@@ -14,7 +14,13 @@ xmlns:f="http://xmlns.jcp.org/jsf/core">
 	<h2>Editar Pessoa</h2>
 	<h:form>
 		<h:panelGrid columns="2">
-			<h:outputText value="Nome" />
+		
+			
+		
+			<h:outputText value="ID"/>
+			<h:inputText value="#{PessoaBean.pessoa.id}" readonly="true" />
+			
+			<h:outputText value="Nome"/>
 			<h:inputText value="#{PessoaBean.pessoa.nome}" />
 
 			<h:outputText value="Profissão" />

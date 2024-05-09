@@ -10,7 +10,11 @@
 <h:body>
 
 	<h2>Lista de Pessoas</h2>
+	
+	<h:button value="Nova Pessoa" outcome="/pessoa/cadastrar.xhtml"/>
+	
 	<h:form>
+	
 	<h:dataTable value="#{PessoaBean.pessoas}" var="pessoa" >
 <h:column>
 	<f:facet name="header">Id</f:facet>
@@ -46,7 +50,7 @@
 
 	
 	<h:column>
-	<h:commandButton value="Apagar" action="#{PessoaBean.apagar(pessoa)}" />
+	<h:commandButton value="Excluir" action="#{PessoaBean.apagar(pessoa)}" />
 	</h:column>
 	
 	
