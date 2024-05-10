@@ -2,57 +2,108 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>Projeto Adas JSF</title>
+	<link rel="stylesheet" href="../assets/estilo.css"></link>
 </h:head>
 <h:body>
 
 
-	<h2>Cadastro de pessoa</h2>
-	<h:form>
-		<h:panelGrid columns="2">
-			<h:outputText value="Nome" />
-			<h:inputText value="#{PessoaBean.pessoa.nome}" required="true"
-				requiredMessage="O campo nome é obrigatório" />
+	<header>
+	<h1>Sistema Adas JSF</h1>
+	</header>
 
-			<h:outputText value="Profissão" />
-			<h:selectOneMenu value="#{PessoaBean.pessoa.profissao}"
-				required="true"
-				requiredMessage="A seleção de Profissão é obrigatória.">
-				<f:selectItem itemLabel="" itemValue="" />
-				<f:selectItem itemLabel="Desenvolvedor" itemValue="Desenvolvedor" />
-				<f:selectItem itemLabel="DBA" itemValue="DBA" />
-				<f:selectItem itemLabel="Front-End" itemValue="Front-End" />
-				<f:selectItem itemLabel="Back-end" itemValue="Back-end" />
-				<f:selectItem itemLabel="FullStack" itemValue="FullStack" />
-			</h:selectOneMenu>
 
-			<h:outputText value="Idade" />
-			<h:inputText value="#{PessoaBean.pessoa.idade}" required="true"
-				requiredMessage="O campo Idade é obrigatório." />
+	<div class="card">
+		<h:form>
+			<p:growl id="messages" />
 
-			<h:outputText value="Cidade" />
-			<h:selectOneMenu value="#{PessoaBean.pessoa.cidade}" required="true"
-				requiredMessage="A seleção de Cidade é obrigatória.">
-				<f:selectItem itemLabel="" itemValue="" />
-				<f:selectItem itemLabel="Blumenau" itemValue="Blumenau" />
-				<f:selectItem itemLabel="Indaial" itemValue="Indaial" />
-				<f:selectItem itemLabel="Brusque" itemValue="Brusque" />
-				<f:selectItem itemLabel="Penha" itemValue="Penha" />
-				<f:selectItem itemLabel="Balneário Piçarras"
-					itemValue="Balneário Piçarras" />
-			</h:selectOneMenu>
+			<p:menubar>
+				<p:submenu label="Cadastros" icon="pi pi-fw pi-plus">
+					<p:menuitem value="Pessoa" icon="pi pi-fw pi-user"
+						outcome="/pessoa/cadastrar.xhtml" />
+				</p:submenu>
 
-			<h:outputText />
-			<h:messages />
-			<h:commandButton value="Adicionar" action="#{PessoaBean.adicionar}" />
+				<p:submenu label="Listas" icon="pi pi-fw pi-list">
+					<p:menuitem value="Pessoa" icon="pi pi-fw pi-user"
+						outcome="/pessoa/listar.xhtml" />
+				</p:submenu>
+				<p:divider layout="vertical" />
 
-			<h:button value="Cancelar" outcome="/pessoa/listar.xhtml"/>
+				<p:menuitem value="Principal" icon="pi pi-fw pi-home"
+					outcome="/Menu.xhtml" />
 
-		</h:panelGrid>
-	</h:form>
+				<f:facet name="options">
+					<div class="ui-input-icon-left mr-2">
+						<i class="pi pi-fw pi-search" />
+						<p:inputText placeholder="Buscar" />
+					</div>
+					<p:button value="Sair" icon="pi pi-fw pi-sign-out"
+						styleClass="ui-button-info" />
+				</f:facet>
+			</p:menubar>
+		</h:form>
+	</div>
+
+	<div class="card">
+		<h2>Cadastro de pessoa</h2>
+
+		<h:form>
+			<p:panelGrid columns="2">
+				<p:outputLabel value="Nome" />
+				<p:inputText value="#{PessoaBean.pessoa.nome}" required="true"
+					requiredMessage="O campo nome é obrigatório" />
+
+				<p:outputLabel value="Profissão" />
+				<p:selectOneMenu value="#{PessoaBean.pessoa.profissao}"
+					required="true"
+					requiredMessage="A seleção de Profissão é obrigatória.">
+					<f:selectItem itemLabel="" itemValue="" />
+					<f:selectItem itemLabel="Desenvolvedor" itemValue="Desenvolvedor" />
+					<f:selectItem itemLabel="DBA" itemValue="DBA" />
+					<f:selectItem itemLabel="Front-End" itemValue="Front-End" />
+					<f:selectItem itemLabel="Back-end" itemValue="Back-end" />
+					<f:selectItem itemLabel="FullStack" itemValue="FullStack" />
+				</p:selectOneMenu>
+
+				<p:outputLabel value="Idade" />
+				<p:inputText value="#{PessoaBean.pessoa.idade}" required="true"
+					requiredMessage="O campo Idade é obrigatório." />
+
+				<p:outputLabel value="Cidade" />
+				<p:selectOneMenu value="#{PessoaBean.pessoa.cidade}" required="true"
+					requiredMessage="A seleção de Cidade é obrigatória.">
+					<f:selectItem itemLabel="" itemValue="" />
+					<f:selectItem itemLabel="Blumenau" itemValue="Blumenau" />
+					<f:selectItem itemLabel="Indaial" itemValue="Indaial" />
+					<f:selectItem itemLabel="Brusque" itemValue="Brusque" />
+					<f:selectItem itemLabel="Penha" itemValue="Penha" />
+					<f:selectItem itemLabel="Balneário Piçarras"
+						itemValue="Balneário Piçarras" />
+				</p:selectOneMenu>
+				
+				<p:row>
+					<p:column styleClass="ui-grid-col-12">
+						<p:commandButton 
+							value="Salvar" 
+							styleClass="mr-2"
+							style="width: auto"
+							action="#{PessoaBean.adicionar}" />
+						<p:button 
+							value="Cancelar" 
+							styleClass="mr-2"
+							style="width: auto" 
+							outcome="/pessoa/listar.xhtml"/>
+					</p:column>
+				</p:row>
+				<p:messages />
+
+			</p:panelGrid>
+		</h:form>
+	</div>
 
 
 

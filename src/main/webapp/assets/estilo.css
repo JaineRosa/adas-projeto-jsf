@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+header {
+	text-align: center;
+	color: #191569;
+	font-family: calibri;
+}
+
+.ui-panelgrid.showcase-text-align-center .ui-grid-responsive .ui-panelgrid-cell
+	{
+	text-align: center;
+}
+
+.customPanelGrid .ui-panelgrid-content {
+	align-items: center;
+}
